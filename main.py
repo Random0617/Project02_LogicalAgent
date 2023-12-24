@@ -297,15 +297,82 @@ def generate_map5(filename):
     resulting_matrix[starting_row][starting_col] = "A"
     convert_matrix_to_file(resulting_matrix, filename)
     return resulting_matrix
+
+def Stench(matrix):
+    # Given a two-dimensional matrix of rooms, return a two-dimensional boolean list
+    # of whether the room has a Stench (is directly adjacent to a wumpus)
+    ARRAY_SIZE = len(matrix)
+    resulting_array = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+    for i in range(ARRAY_SIZE):
+        for k in range(ARRAY_SIZE):
+            if ((i - 1 >= 0 and matrix[i - 1][k] == 'W')
+                    or (i + 1 < ARRAY_SIZE and matrix[i + 1][k] == 'W')
+                    or (k - 1 >= 0 and matrix[i][k - 1] == 'W')
+                    or (k + 1 < ARRAY_SIZE and matrix[i][k + 1] == 'W')):
+                resulting_array[i][k] = resulting_array[i][k] + 1
+    return resulting_array
+
+
+def Breeze(matrix):
+    # Given a two-dimensional matrix of rooms, return a two-dimensional boolean list
+    # of whether the room has a Breeze (is directly adjacent to a pit square)
+    ARRAY_SIZE = len(matrix)
+    resulting_array = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+    for i in range(ARRAY_SIZE):
+        for k in range(ARRAY_SIZE):
+            if ((i - 1 >= 0 and matrix[i - 1][k] == 'P')
+                    or (i + 1 < ARRAY_SIZE and matrix[i + 1][k] == 'P')
+                    or (k - 1 >= 0 and matrix[i][k - 1] == 'P')
+                    or (k + 1 < ARRAY_SIZE and matrix[i][k + 1] == 'P')):
+                resulting_array[i][k] = resulting_array[i][k] + 1
+    return resulting_array
+
+def Glitter(matrix):
+    # Given a two-dimensional matrix of rooms, return a two-dimensional boolean list
+    # of whether the room has a Glitter (is a gold square)
+    ARRAY_SIZE = len(matrix)
+    resulting_array = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+    for i in range(ARRAY_SIZE):
+        for k in range(ARRAY_SIZE):
+            if matrix[i][k] == 'G':
+                resulting_array[i][k] = resulting_array[i][k] + 1
+    return resulting_array
+
 def main():
-    matrix1 = generate_map1("map1.txt")
+    matrix1 = convert_file_to_matrix("map1.txt")
+    matrix2 = convert_file_to_matrix("map2.txt")
+    matrix3 = convert_file_to_matrix("map3.txt")
+    matrix4 = convert_file_to_matrix("map4.txt")
+    matrix5 = convert_file_to_matrix("map5.txt")
     print(matrix1)
-    matrix2 = generate_map2("map2.txt")
-    print(matrix2)
-    matrix3 = generate_map3("map3.txt")
-    print(matrix3)
-    matrix4 = generate_map4("map4.txt")
-    print(matrix4)
-    matrix5 = generate_map5("map5.txt")
-    print(matrix5)
+    print(Stench(matrix1))
+    print(Breeze(matrix1))
+    print(Glitter(matrix1))
 main()
