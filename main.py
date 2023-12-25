@@ -365,6 +365,20 @@ def Glitter(matrix):
                 resulting_array[i][k] = resulting_array[i][k] + 1
     return resulting_array
 
+def action_path(matrix):
+    '''
+    Given a matrix, return a one-dimensional list of desired actions to escape with gold. Each action
+    is represented by a char:
+    - 'F': Step forward by one square, -10
+    - 'L': Turn left by 90 degrees, free
+    - 'R': Turn right by 90 degrees, free
+    - 'S': Shoot an arrow forward by one square in the same direction it faces, -100
+    - 'G': Grab gold, +1000
+    - 'C': Climb out of the cave (exit the cave), only if the agent is at (1, 1) ([9][0] in the list), +10
+    '''
+
+    return 0
+
 def main():
     matrix1 = convert_file_to_matrix("map1.txt")
     matrix2 = convert_file_to_matrix("map2.txt")

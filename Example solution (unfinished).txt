@@ -1,0 +1,115 @@
+Directions prioritization: right, down, left, up
+
+Relative coordinates (what the agent knows, can be negative) are as follows (for example):
+[3, -1], [3, 0], [3, 1], [3, 2], [3, 3], [3, 4]
+[2, -1], [2, 0], [2, 1], [2, 2], [2, 3], [2, 4]
+[1, -1], [1, 0], [1, 1], [1, 2], [1, 3], [1, 4]
+[0, -1], [0, 0], [0, 1], [0, 2], [0, 3], [0, 4]
+[-1, -1], [-1, 0], [-1, 1], [-1, 2], [-1, 3], [-1, 4]
+[-2, -1], [-2, 0], [-2, 1], [-2, 2], [-2, 3], [-2, 4]
+(0, 0) is always the starting cell that the agent knows.
+
+Phase 1: Grab all the gold
+
+Start at (0, 0) (not aware of the walls or size of the matrix), facing right
+Real matrix location: (4, 0)
+-.P.-.P.W
+-.-.G.P.-
+W.-.P.-.P
+-.-.-.-.-
+A.-.-.-.-
+
+- No Glitter is perceived, no need to grab gold
+- No Stench is perceived. KB_no_wumpus = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1]]
+- No Breeze is perceived. KB_no_pit = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1]]
+
+Move right to (0, 1)
+Real matrix location: (4, 1)
+-.P.-.P.W
+-.-.G.P.-
+W.-.P.-.P
+-.-.-.-.-
+-.A.-.-.-
+
+- No Glitter is perceived, no need to grab gold
+- No Stench is perceived. KB_no_wumpus = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1]] + [[1, 1], [0, 2], [-1, 1]]
+- No Breeze is perceived. KB_no_pit = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1]] + [[1, 1], [0, 2], [-1, 1]]
+
+Move right to (0, 2)
+Real matrix location: (4, 2)
+-.P.-.P.W
+-.-.G.P.-
+W.-.P.-.P
+-.-.-.-.-
+-.-.A.-.-
+
+- No Glitter is perceived, no need to grab gold
+- No Stench is perceived. KB_no_wumpus = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [0, 2], [-1, 1]] + [[0, 3], [1, 2], [-1, 2]]
+- No Breeze is perceived. KB_no_pit = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [0, 2], [-1, 1]] + [[0, 3], [1, 2], [-1, 2]]
+
+Move right to (0, 3)
+Real matrix location: (4, 3)
+-.P.-.P.W
+-.-.G.P.-
+W.-.P.-.P
+-.-.-.-.-
+-.-.-.A.-
+- No Glitter is perceived, no need to grab gold
+- No Stench is perceived. 
+KB_no_wumpus = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [0, 2], [-1, 1], [0, 3], [1, 2], [-1, 2]] + [[0, 4], [1, 3], [-1, 3]]
+- No Breeze is perceived.
+KB_no_pit = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [0, 2], [-1, 1], [0, 3], [1, 2], [-1, 2]] + [[0, 4], [1, 3], [-1, 3]]
+
+Move right to (0, 4)
+Real matrix location: (4, 4)
+-.P.-.P.W
+-.-.G.P.-
+W.-.P.-.P
+-.-.-.-.-
+-.-.-.-.A
+- No Glitter is perceived, no need to grab gold
+- No Stench is perceived. 
+KB_no_wumpus = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [0, 2], [-1, 1], [0, 3], [1, 2], [-1, 2], [0, 4], [1, 3], [-1, 3]] + [[0, 5], [1, 4], [-1, 4]]
+- No Breeze is perceived.
+KB_no_pit = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [0, 2], [-1, 1], [0, 3], [1, 2], [-1, 2], [0, 4], [1, 3], [-1, 3]] + [[0, 5], [1, 4], [-1, 4]]
+
+Move right to (0, 5)
+Real matrix location: (4, 5) => not a valid location, so bump to a wall and go back to (0, 4) (matrix location (4, 4)) without losing points.
+KB_wall = [] + [5, 'c']
+KB_no_wumpus = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [0, 2], [-1, 1], [0, 3], [1, 2], [-1, 2], [0, 4], [1, 3], [-1, 3]] + [[0, 5], [1, 4], [-1, 4]]
+KB_no_pit = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [0, 2], [-1, 1], [0, 3], [1, 2], [-1, 2], [0, 4], [1, 3], [-1, 3]] + [[0, 5], [1, 4], [-1, 4]]
+
+Move down to (-1, 4)
+Real matrix location: (5, 4) => not a valid location, so bump to a wall and go back to (0, 4) (matrix location (4, 4)) without losing points.
+KB_wall = [5, 'c'] + [-1, 'r']
+KB_no_wumpus = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [0, 2], [-1, 1], [0, 3], [1, 2], [-1, 2], [0, 4], [1, 3], [-1, 3]] + [[0, 5], [1, 4], [-1, 4]]
+KB_no_pit = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [0, 2], [-1, 1], [0, 3], [1, 2], [-1, 2], [0, 4], [1, 3], [-1, 3]] + [[0, 5], [1, 4], [-1, 4]]
+
+Move left to (0, 3)
+=> Undoing previous move (right) is not allowed unless all other directions are not possible.
+
+Move up to (1, 4)
+Real matrix location: (3, 4)
+-.P.-.P.W
+-.-.G.P.-
+W.-.P.-.P
+-.-.-.-.A
+-.-.-.-.-
+- No Glitter is perceived, no need to grab gold
+- No Stench is perceived. 
+KB_no_wumpus = [[0, 0], [1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [0, 2], [-1, 1], [0, 3], [1, 2], [-1, 2], [0, 4], [1, 3], [-1, 3], [0, 5], [1, 4], [-1, 4]] + [[1, 3], [1, 5], [2, 4]] (remove duplicates later)
+- Breeze is perceived.
+There are four neighboring squares: [1, 3], [1, 5], [2, 4], [0, 4]
+	+ [1, 3] and [0, 4] is confirmed to be safe in KB_no_pit
+	+ [1, 5] is out of bounds
+	+ Meaning the agent knows 100% that [2, 4] is a pit. KB_pit = [] + [2, 4]
+
+Moving right is not allowed, bump to a wall.
+Down: Undoing previous move (up) is not allowed unless all other directions are not possible.
+Move left to (1, 3)
+Real matrix location: (1, 3)
+-.P.-.P.W
+-.-.G.P.-
+W.-.P.-.P
+-.-.-.A.-
+-.-.-.-.-
