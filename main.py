@@ -432,8 +432,42 @@ class Agent:
                             else:
                                 neighbor_available = False
                                 output_file.write("No exit path exists" + '\n')
-                                output_file.write(self.KB_full_path + '\n')
+                                output_file.write(str(self.KB_full_path) + '\n')
         output_file.write("Final score: " + str(self.KB_score) + '\n')
+def generate_map0(filename):
+    '''
+    Returns a two-dimensional list of characters and also output the matrix to a textfile
+    Map 0 (original problem, demo):
+    - Size: 4x4 (all other maps as required for this project is 10x10)
+    - One Wumpus square
+    - One gold square (out of the remaining squares)
+    - Chance of a square (out of the remaining squares, except (1, 1)) being a pit: 0.2
+    - Start at room (1, 1)
+    '''
+    ARRAY_SIZE = 4
+    resulting_matrix = [['-' for i in range(ARRAY_SIZE)] for j in range(ARRAY_SIZE)]
+    rand_nums = []
+    for i in range(ARRAY_SIZE * ARRAY_SIZE):
+        rand_nums.append(i)
+    sampled_list = [ARRAY_SIZE * (ARRAY_SIZE - 1), ARRAY_SIZE * (ARRAY_SIZE - 1)]
+    while ARRAY_SIZE * (ARRAY_SIZE - 1) in sampled_list:
+        # ARRAY_SIZE * (ARRAY_SIZE - 1) in the array is (1, 1) in the matrix
+        sampled_list = random.sample(rand_nums, 2)
+    wumpus_row = int(sampled_list[0] / ARRAY_SIZE)
+    wumpus_col = sampled_list[0] % ARRAY_SIZE
+    gold_row = int(sampled_list[1] / ARRAY_SIZE)
+    gold_col = sampled_list[1] % ARRAY_SIZE
+    resulting_matrix[wumpus_row][wumpus_col] = "W"
+    resulting_matrix[gold_row][gold_col] = "G"
+    resulting_matrix[ARRAY_SIZE - 1][0] = "A"
+    for i in range(len(resulting_matrix)):
+        for k in range(len(resulting_matrix)):
+            if resulting_matrix[i][k] == "-":
+                chance_for_pit = random.choice(range(0, 100))
+                if chance_for_pit < 20:
+                    resulting_matrix[i][k] = "P"
+    convert_matrix_to_file(resulting_matrix, filename)
+    return resulting_matrix
 def generate_map1(filename):
     '''
     Returns a two-dimensional list of characters and also output the matrix to a textfile
@@ -673,6 +707,9 @@ def main():
     output_file = open(OUTPUT_FILENAME, "w")
     output_file.close()
     output_file = open(OUTPUT_FILENAME, "a")
+    matrix0 = convert_file_to_matrix("map0.txt")
+    agent0 = Agent(matrix0, output_file)
+    agent0.solve_problem(output_file)
     matrix1 = convert_file_to_matrix("map1.txt")
     agent1 = Agent(matrix1, output_file)
     agent1.solve_problem(output_file)
