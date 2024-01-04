@@ -458,6 +458,7 @@ class Agent:
                                 output_file.write("No exit path exists" + '\n')
                                 output_file.write(str(self.KB_full_path) + '\n')
         output_file.write("Final score: " + str(self.KB_score) + '\n')
+        output_file.write("Entire action path: " + str(self.KB_full_path) + '\n')
 def generate_map0(filename):
     '''
     Returns a two-dimensional list of characters and also output the matrix to a textfile

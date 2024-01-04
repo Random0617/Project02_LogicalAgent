@@ -641,6 +641,7 @@ Current knowledge base of the agent:
 
 Successfully escaped, +10 pts
 Final score: 710
+Entire action path: ['right', 'right', 'right', 'up', 'left', 'left', 'left', 'up', 'shoot_up', 'down', 'right', 'right', 'up', 'right', 'left', 'down', 'right', 'down', 'left', 'left', 'left']
 Success, -10 pts
 Current top-view matrix (hidden from agent):
 ['-', '-', '-', '-', '-', 'P', 'P', '-', '-', '-']
@@ -2158,6 +2159,7 @@ Current knowledge base of the agent:
 
 Successfully escaped, +10 pts
 Final score: 590
+Entire action path: ['right', 'left', 'up', 'right', 'right', 'left', 'up', 'right', 'right', 'right', 'left', 'down', 'up', 'up', 'right', 'right', 'left', 'up', 'left', 'right', 'down', 'left', 'left', 'left', 'left', 'down', 'up', 'right', 'up', 'right', 'up', 'down', 'left', 'down', 'right', 'right', 'down', 'left', 'left', 'down', 'left', 'down']
 Success, -10 pts
 Current top-view matrix (hidden from agent):
 ['-', '-', '-', '-', '-', 'P', '-', 'P', '-', '-']
@@ -2992,6 +2994,7 @@ Current knowledge base of the agent:
 
 Successfully escaped, +10 pts
 Final score: 1790
+Entire action path: ['right', 'left', 'left', 'left', 'up', 'right', 'right', 'left', 'up', 'left', 'up', 'down', 'right', 'down', 'left', 'down', 'right', 'right', 'right', 'left', 'left', 'left']
 Success, -10 pts
 Current top-view matrix (hidden from agent):
 ['-', '-', '-', '-', '-', 'P', '-', 'W', 'P', '-']
@@ -6798,6 +6801,7 @@ Current knowledge base of the agent:
 
 Successfully escaped, +10 pts
 Final score: -380
+Entire action path: ['right', 'right', 'right', 'right', 'right', 'left', 'up', 'left', 'left', 'left', 'left', 'right', 'up', 'right', 'right', 'right', 'right', 'left', 'up', 'right', 'left', 'left', 'left', 'right', 'up', 'right', 'right', 'right', 'left', 'up', 'right', 'right', 'left', 'up', 'right', 'right', 'down', 'down', 'up', 'up', 'up', 'shoot_up', 'left', 'left', 'shoot_left', 'left', 'down', 'left', 'down', 'up', 'up', 'left', 'right', 'up', 'right', 'right', 'shoot_up', 'left', 'up', 'down', 'left', 'down', 'down', 'right', 'up', 'right', 'right', 'right', 'up', 'down', 'down', 'left', 'left', 'down', 'left', 'down', 'left', 'left', 'down', 'right', 'down', 'left', 'left', 'left', 'down', 'right', 'right', 'right', 'down', 'left', 'left', 'left', 'left', 'left', 'up', 'up', 'down', 'down', 'right', 'right', 'right', 'right', 'right', 'right', 'left', 'up', 'left', 'left', 'left', 'left', 'down', 'left']
 Success, -10 pts
 Stench perceived, attempting to shoot to the right, [0, 1]
 Successfully shoot to the right, -100 pts
@@ -10328,6 +10332,7 @@ Current knowledge base of the agent:
 
 Successfully escaped, +10 pts
 Final score: 4500
+Entire action path: ['shoot_right', 'shoot_down', 'right', 'right', 'shoot_right', 'right', 'left', 'down', 'right', 'right', 'right', 'up', 'left', 'right', 'up', 'down', 'down', 'left', 'left', 'left', 'left', 'left', 'left', 'left', 'left', 'left', 'right', 'up', 'right', 'right', 'up', 'right', 'right', 'right', 'left', 'left', 'up', 'left', 'left', 'down', 'left', 'left', 'right', 'up', 'left', 'up', 'right', 'left', 'up', 'shoot_up', 'right', 'right', 'left', 'up', 'right', 'shoot_right', 'right', 'left', 'up', 'left', 'right', 'down', 'left', 'left', 'right', 'down', 'left', 'down', 'down', 'right', 'down', 'right', 'up', 'right', 'up', 'down', 'right', 'down', 'left', 'down', 'left', 'left', 'down', 'right', 'right', 'right', 'right', 'right', 'up', 'left', 'left', 'right', 'right', 'right', 'right', 'right', 'down', 'left', 'left', 'left', 'left', 'left', 'left', 'left', 'left', 'left']
 Success, -10 pts
 Current top-view matrix (hidden from agent):
 ['-', 'G', '-', '-', 'G', 'G', 'P', 'P', '-', 'G']
@@ -17435,3 +17440,4 @@ Current knowledge base of the agent:
 
 Successfully escaped, +10 pts
 Final score: 7470
+Entire action path: ['right', 'down', 'down', 'down', 'up', 'left', 'down', 'down', 'up', 'left', 'down', 'left', 'left', 'right', 'up', 'shoot_up', 'left', 'left', 'right', 'up', 'right', 'shoot_up', 'right', 'up', 'right', 'left', 'left', 'left', 'left', 'down', 'up', 'left', 'right', 'up', 'right', 'left', 'left', 'left', 'down', 'down', 'up', 'left', 'down', 'down', 'right', 'right', 'left', 'down', 'right', 'left', 'left', 'left', 'up', 'up', 'up', 'up', 'right', 'up', 'shoot_up', 'right', 'right', 'right', 'right', 'right', 'left', 'up', 'shoot_up', 'right', 'shoot_right', 'right', 'right', 'right', 'down', 'left', 'left', 'down', 'up', 'right', 'right', 'up', 'up', 'left', 'left', 'left', 'left', 'left', 'down', 'left', 'left', 'left', 'left', 'down', 'up', 'right', 'up', 'right', 'left', 'down', 'right', 'right', 'right', 'up', 'right', 'up', 'right', 'left', 'left', 'left', 'right', 'up', 'right', 'left', 'left', 'left', 'down', 'left', 'up', 'left', 'right', 'down', 'right', 'up', 'right', 'right', 'down', 'right', 'down', 'right', 'right', 'right', 'up', 'right', 'up', 'left', 'right', 'down', 'left', 'down', 'right', 'down', 'left', 'left', 'left', 'left', 'down', 'left', 'left', 'left', 'left', 'down', 'left', 'down', 'down', 'down', 'down', 'right', 'right', 'up', 'left', 'up', 'up', 'right', 'up', 'right', 'right', 'down', 'right', 'right', 'right', 'down', 'left', 'left', 'down', 'right', 'down', 'right', 'up', 'right', 'up', 'right', 'up', 'up', 'left', 'right', 'down', 'down', 'down', 'left', 'down', 'left', 'left', 'left', 'up', 'right', 'right', 'up', 'right', 'up', 'left', 'left', 'down', 'left', 'left', 'down', 'left', 'down', 'left', 'left', 'left']
