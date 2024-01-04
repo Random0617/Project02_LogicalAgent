@@ -215,6 +215,11 @@ class Agent:
                     self.KB_no_wumpus.append(shooting_relative_pos)
                 else:
                     output_file.write("The arrow hits a wall. Under the problem rules, this information is hidden to the agent." + '\n')
+            elif isWall(shooting_relative_pos, self.KB_walls):
+                output_file.write("Shooting is not allowed because this is a known wall" + '\n')
+            else:
+                output_file.write("Shooting is not allowed because this square is confirmed to not have a wumpus" + '\n')
+
         # Similar for left
         if self.Stench[self.starting_row + self.KB_current_pos[0]][self.starting_col + self.KB_current_pos[1]]:
             shooting_relative_pos = [self.KB_current_pos[0], self.KB_current_pos[1] - 1]
@@ -238,6 +243,10 @@ class Agent:
                     self.KB_no_wumpus.append(shooting_relative_pos)
                 else:
                     output_file.write("The arrow hits a wall. Under the problem rules, this information is hidden to the agent." + '\n')
+            elif isWall(shooting_relative_pos, self.KB_walls):
+                output_file.write("Shooting is not allowed because this is a known wall" + '\n')
+            else:
+                output_file.write("Shooting is not allowed because this square is confirmed to not have a wumpus" + '\n')
         # Similar for up
         if self.Stench[self.starting_row + self.KB_current_pos[0]][self.starting_col + self.KB_current_pos[1]]:
             shooting_relative_pos = [self.KB_current_pos[0] - 1, self.KB_current_pos[1]]
@@ -261,6 +270,10 @@ class Agent:
                     self.KB_no_wumpus.append(shooting_relative_pos)
                 else:
                     output_file.write("The arrow hits a wall. Under the problem rules, this information is hidden to the agent." + '\n')
+            elif isWall(shooting_relative_pos, self.KB_walls):
+                output_file.write("Shooting is not allowed because this is a known wall" + '\n')
+            else:
+                output_file.write("Shooting is not allowed because this square is confirmed to not have a wumpus" + '\n')
 
     def move_deeper_template(self, direction_str, opposite_direction_str, wall_char, index_of_changed_coord,
                              next_coord, next_relative_pos, next_absolute_pos, output_file):
