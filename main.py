@@ -433,7 +433,7 @@ class Agent:
             self.print_knowledge(output_file)
             output_file.write('\n')
             if self.climb():
-                output_file.write("Successfully escaped" + '\n')
+                output_file.write("Successfully escaped, +10 pts" + '\n')
                 self.KB_score += 10
                 break
             self.move_right_deeper(output_file)
