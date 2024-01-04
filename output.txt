@@ -640,7 +640,7 @@ Current knowledge base of the agent:
 - Current score: 700
 
 Successfully escaped
-Final score: 700
+Final score: 710
 Success, -10 pts
 Current top-view matrix (hidden from agent):
 ['-', '-', '-', '-', '-', 'P', 'P', '-', '-', '-']
@@ -2157,7 +2157,7 @@ Current knowledge base of the agent:
 - Current score: 580
 
 Successfully escaped
-Final score: 580
+Final score: 590
 Success, -10 pts
 Current top-view matrix (hidden from agent):
 ['-', '-', '-', '-', '-', 'P', '-', 'P', '-', '-']
@@ -2991,7 +2991,7 @@ Current knowledge base of the agent:
 - Current score: 1780
 
 Successfully escaped
-Final score: 1780
+Final score: 1790
 Success, -10 pts
 Current top-view matrix (hidden from agent):
 ['-', '-', '-', '-', '-', 'P', '-', 'W', 'P', '-']
@@ -6797,7 +6797,7 @@ Current knowledge base of the agent:
 - Current score: -390
 
 Successfully escaped
-Final score: -390
+Final score: -380
 Success, -10 pts
 Stench perceived, attempting to shoot to the right, [0, 1]
 Successfully shoot to the right, -100 pts
@@ -10327,7 +10327,7 @@ Current knowledge base of the agent:
 - Current score: 4490
 
 Successfully escaped
-Final score: 4490
+Final score: 4500
 Success, -10 pts
 Current top-view matrix (hidden from agent):
 ['-', 'G', '-', '-', 'G', 'G', 'P', 'P', '-', 'G']
@@ -17434,4 +17434,4 @@ Current knowledge base of the agent:
 - Current score: 7460
 
 Successfully escaped
-Final score: 7460
+Final score: 7470

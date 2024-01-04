@@ -434,6 +434,7 @@ class Agent:
             output_file.write('\n')
             if self.climb():
                 output_file.write("Successfully escaped" + '\n')
+                self.KB_score += 10
                 break
             self.move_right_deeper(output_file)
             next_relative_pos = [self.KB_current_pos[0], self.KB_current_pos[1]]
