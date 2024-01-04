@@ -147,6 +147,16 @@ class Agent:
         else:
             output_file.write("Breeze perceived. Neighboring squares of "
                   + str([self.KB_current_pos[0], self.KB_current_pos[1]]) + " may have pits." + '\n')
+        if not self.Stench[self.starting_row + self.KB_current_pos[0]][self.starting_col + self.KB_current_pos[1]]:
+            if not isWall([self.KB_current_pos[0], self.KB_current_pos[1] + 1], self.KB_walls):
+                self.KB_no_wumpus.append([self.KB_current_pos[0], self.KB_current_pos[1] + 1])
+            if not isWall([self.KB_current_pos[0], self.KB_current_pos[1] - 1], self.KB_walls):
+                self.KB_no_wumpus.append([self.KB_current_pos[0], self.KB_current_pos[1] - 1])
+            if not isWall([self.KB_current_pos[0] - 1, self.KB_current_pos[1]], self.KB_walls):
+                self.KB_no_wumpus.append([self.KB_current_pos[0] - 1, self.KB_current_pos[1]])
+            if not isWall([self.KB_current_pos[0] + 1, self.KB_current_pos[1]], self.KB_walls):
+                self.KB_no_wumpus.append([self.KB_current_pos[0] + 1, self.KB_current_pos[1]])
+            self.KB_no_wumpus = remove_duplicates(self.KB_no_wumpus)
         if self.Glitter[self.starting_row + self.KB_current_pos[0]][self.starting_col + self.KB_current_pos[1]]:
             output_file.write("Glitter perceived. Picking up gold, +1000 pts" + '\n')
             self.KB_score += 1000
